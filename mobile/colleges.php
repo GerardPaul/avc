@@ -3,7 +3,7 @@
 require("config.inc.php");
 
 
-$query = "SELECT * FROM avc_college";
+$query = "SELECT * FROM avc_college ORDER BY id ASC";
 
 $r = $db->prepare($query);
 $q = $r->execute();

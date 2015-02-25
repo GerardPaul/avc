@@ -24,6 +24,7 @@ if (!empty($_POST)) {
     $login = false;
     $id = "";
     $type = "";
+	$college = "";
     if ($row) {
         $salt = $row['salt'];
         $userUsername = $row['username'];
@@ -34,6 +35,7 @@ if (!empty($_POST)) {
             $login = true;
             $id = $row['id'];
             $type = $row['type'];
+			$college = $row['college'];
         }
     }else{
         $response['success'] = 0;
@@ -46,6 +48,7 @@ if (!empty($_POST)) {
         $response['message'] = "Login Successful!";
         $response['id'] = $id;
         $response['type'] = $type;
+		$response['college'] = $college;
 
 //        $lastLogin = "UPDATE teacher SET lastLogin = NOW() WHERE ID = :id ;";
 //        $p = array(
