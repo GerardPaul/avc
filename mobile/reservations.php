@@ -42,6 +42,6 @@ if ($rows) {
     die(json_encode($response));
 } else {
     $response['success'] = 0;
-    $response['message'] = "Not Available!";
+    $response['message'] = "No Reservations Available!";
     die(json_encode($response));
 }

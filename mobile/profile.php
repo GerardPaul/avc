@@ -6,7 +6,12 @@ if (!empty($_POST)) {
 	$id = $_POST['id'];
 
 	$query = "SELECT u.id AS 'userID', u.username, u.password, u.salt, u.firstname, u.lastname, u.type,"
-			. " c.college_name FROM avc_users u LEFT JOIN avc_college c ON u.college = c.id AND u.id = '$id'";
+			. " c.college_name FROM avc_users u, avc_college c WHERE u.college = c.id AND u.id = '$id'";
+        
+//        SELECT u.id AS 'userID', u.username, u.password, u.salt, u.firstname, u.lastname, u.type,
+//			 c.college_name FROM avc_users u LEFT JOIN avc_college c ON u.id = '3' AND u.college = c.id
+//        SELECT u.id AS 'userID', u.username, u.password, u.salt, u.firstname, u.lastname, u.type,
+//			 c.college_name FROM avc_users u, avc_college c WHERE u.id = '3' AND u.college = c.id
 
 	$r = $db->prepare($query);
 	$q = $r->execute();
